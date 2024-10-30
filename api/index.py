@@ -3,7 +3,6 @@ from PIL import Image
 import tensorflow as tf
 import numpy as np
 import os
-
 app = Flask(__name__)
 
 model_with_trained_path = os.path.join(os.path.dirname(__file__), 'models', 'skin_with_model.h5')
