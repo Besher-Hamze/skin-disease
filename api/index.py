@@ -3,10 +3,10 @@ from PIL import Image
 import tensorflow as tf
 import numpy as np
 import os
+
 app = Flask(__name__)
 
 model_with_trained_path = os.path.join(os.path.dirname(__file__), 'models', 'skin_with_model.h5')
-
 model_with_trained_model = tf.keras.models.load_model(model_with_trained_path)
 classes = ['Actinic keratosis', 'Basal cell carcinoma', 'Benign keratosis', 'Dermatofibroma', 'Melanocytic nevus', 'Melanoma', 'Tinea Ringworm Candidiasis']
 
@@ -57,6 +57,12 @@ def predict():
     for i, predicted_class in enumerate(classes):
         model_confidence = predictions[i]
         symptom_weights = weights.get(predicted_class)
+        print(predicted_class)
+        # Check if symptom_weights is None and handle it
+        if symptom_weights is None:
+            print(f"Warning: No symptom weights found for class '{predicted_class}'. Using default weights.")
+            symptom_weights = [0, 0, 0, 0]  # Default weights if none are found
+
         symptom_probability = (
             symptom_weights[0] * symptoms['rough_texture'] +
             symptom_weights[1] * symptoms['redness'] +
