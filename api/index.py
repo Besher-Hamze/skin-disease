@@ -12,14 +12,13 @@ classes = ['Actinic keratosis', 'Basal cell carcinoma', 'Benign keratosis', 'Der
 
 # Symptom weights for each class
 weights = {
-    "Actinic Keratosis": [0.8, 0.7, 0.3, 0.2],
-    "Basal Cell Carcinoma": [0.6, 0.75, 0.5, 0.1],
-    "Benign Keratosis": [0.4, 0.2, 0.2, 0.8],
+    "Actinic keratosis": [0.8, 0.7, 0.3, 0.2],
+    "Basal cell carcinoma": [0.6, 0.75, 0.5, 0.1],
+    "Benign keratosis": [0.4, 0.2, 0.2, 0.8],
     "Melanoma": [0.9, 0.85, 0.7, 0.6],
-    "Melanocytic Nevus": [0.2, 0.4, 0.1, 0.8],
+    "Melanocytic nevus": [0.2, 0.4, 0.1, 0.8],
     "Dermatofibroma": [0.5, 0.6, 0.2, 0.7],
-    "Tinea Ringworm Candidiasis": [0.1, 0.8, 0.9, 0.5],
-    "Candidiasis": [0.1, 0.9, 0.8, 0.4]
+    "Tinea Ringworm Candidiasis": [0.1, 0.8, 0.9, 0.5]
 }
 
 def softmax(x):
